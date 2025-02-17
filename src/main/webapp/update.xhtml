@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Quản lý nhân viên</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2">
+		<h:outputLabel value="Code" />
+		<h:inputText value="#{ebs.selectedEmployee.code}" />
+		<h:outputLabel value="Name" />
+		<h:inputText value="#{ebs.selectedEmployee.name}" />
+		<h:outputLabel value="Age" />
+		<h:inputText value="#{ebs.selectedEmployee.age}" />
+		<h:outputLabel value="Date of birth" />
+		<h:inputText value="#{ebs.selectedEmployee.dateOfBirth}"  converterMessage="Please provide date of birth in dd/mm/yyyy format" >
+		<f:convertDateTime pattern="dd/MM/yyyy" />
+		</h:inputText>
+		<h:commandButton action="#{ebs.update()}" value="Save" >
+		 
+		</h:commandButton>
+		
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
