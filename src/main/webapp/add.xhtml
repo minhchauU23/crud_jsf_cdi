@@ -4,12 +4,32 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
-	<title>Quản lý nhân viên</title>
+	<title>Add new employee</title>
 </h:head>
 <h:body>
+	<h1>Add new employee</h1>
 
+	<h:form>
 
-	Trang thêm nhân viên
+		<h:panelGrid columns="3">
+			<h:outputText value="Name" />
+
+			<h:inputText id="name" value="#{ebs.employee.name}" required="true">
+				<f:validateLength minimum="1" message="Name cannot be empty."></f:validateLength>
+			</h:inputText>
+			<h:message for="name" style="color:red;" />
+
+			<h:outputText value="Date of birth" />
+			<h:inputText value="#{ebs.employee.dateOfBirth}" id="dateOfBirth"
+				required="true">
+				<f:convertDateTime pattern="yyyy-MM-dd" />
+
+			</h:inputText>
+			<h:message for="dateOfBirth" style="color:red;" />
+
+			<h:commandButton action="#{ebs.create()}" value="Save" />
+		</h:panelGrid>
+	</h:form>
 
 </h:body>
 </html>

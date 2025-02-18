@@ -4,7 +4,7 @@ package model;
 import java.util.Date;
 
 public class Employee {
-	private String code;
+	private int code;
 	private String name;
 	private int age;
 	private Date dateOfBirth;
@@ -12,7 +12,7 @@ public class Employee {
 	public Employee() {
 	}
 	
-	public Employee(String code, String name, int age, Date dateOfBirth) {
+	public Employee(int code, String name, int age, Date dateOfBirth) {
 		super();
 		this.code = code;
 		this.name = name;
@@ -20,11 +20,11 @@ public class Employee {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public String getCode() {
+	public int getCode() {
 		return code;
 	}
 
-	public void setCode(String code) {
+	public void setCode(int code) {
 		this.code = code;
 	}
 
@@ -51,7 +51,5 @@ public class Employee {
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	
-	
 	
 }

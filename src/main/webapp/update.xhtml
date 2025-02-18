@@ -5,25 +5,29 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Quản lý nhân viên</title>
+	<title>Edit employee</title>
+
 </h:head>
 <h:body>
+<h1> Update employee</h1>
 	<h:form>
-		<h:panelGrid columns="2">
-		<h:outputLabel value="Code" />
-		<h:inputText value="#{ebs.selectedEmployee.code}" />
-		<h:outputLabel value="Name" />
-		<h:inputText value="#{ebs.selectedEmployee.name}" />
-		<h:outputLabel value="Age" />
-		<h:inputText value="#{ebs.selectedEmployee.age}" />
-		<h:outputLabel value="Date of birth" />
-		<h:inputText value="#{ebs.selectedEmployee.dateOfBirth}"  converterMessage="Please provide date of birth in dd/mm/yyyy format" >
-		<f:convertDateTime pattern="dd/MM/yyyy" />
-		</h:inputText>
-		<h:commandButton action="#{ebs.update()}" value="Save" >
-		 
-		</h:commandButton>
-		
+		<h:panelGrid columns="3">
+			<h:outputLabel value="Code" />
+			<h:inputText id="code" value="#{ebs.employee.code}" readonly="true" />
+			<h:message for="code" style="color:red;" />
+
+			<h:outputLabel value="Name" />
+			<h:inputText id="name" value="#{ebs.employee.name}" required="true" />
+			<h:message for="name" style="color:red;" />
+
+			<h:outputLabel value="Date of birth" />
+			<h:inputText value="#{ebs.employee.dateOfBirth}" required="true"
+				id="dateOfBirth">
+				<f:convertDateTime pattern="yyyy-MM-dd" />
+			</h:inputText>
+			<h:message for="dateOfBirth" style="color:red;" />
+
+			<h:commandButton action="#{ebs.update()}" value="Save" />
 		</h:panelGrid>
 	</h:form>
 </h:body>
